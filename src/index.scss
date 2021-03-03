@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
-
+@import "./styles/variables";
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -13,5 +13,10 @@ code {
 }
 
 * {
-  box-sizing: border-box;
+  margin: 0;
+  color: $p-color;
+}
+
+a {
+  text-decoration: none;
 }
