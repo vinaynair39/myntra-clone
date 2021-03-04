@@ -1,0 +1,115 @@
+@import "../../styles/style";
+.card {
+  width: 210px;
+  height: 364px;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 32px;
+  margin-left: 28px;
+
+  p {
+    margin: 0;
+  }
+  .content {
+    padding: 8px;
+  }
+  .wishlist {
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    bottom: 80px;
+    background-color: white;
+    height: 48px;
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      text-transform: uppercase;
+      border: 1px solid #d4d5d9;
+      padding: 4px 8px;
+      width: 90%;
+      svg {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+      }
+    }
+    .buttonActive {
+      background-color: $h1-color;
+      color: white;
+      svg {
+        path {
+          fill: $primary;
+        }
+      }
+    }
+  }
+
+  .similar {
+    visibility: hidden;
+    position: absolute;
+    bottom: 38%;
+    right: 8%;
+    z-index: 11;
+    background-color: white;
+    border-radius: 100%;
+    width: fit-content;
+    svg {
+      path {
+        fill: $primary;
+      }
+    }
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+      width: fit-content;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      padding: 2px 12px;
+      &::after {
+        content: "View Similar";
+        font-size: 12px;
+      }
+    }
+  }
+
+  .brand {
+    font-weight: 700;
+  }
+  .product {
+    font-size: 12px;
+    padding-top: 4px;
+  }
+  .priceContainer {
+    padding-top: 4px;
+  }
+  .price {
+    font-weight: 12px;
+    font-weight: 700;
+    padding-right: 8px;
+  }
+
+  .originalPrice {
+    text-decoration: line-through;
+    padding-right: 8px;
+  }
+  .discount {
+    color: $primary;
+  }
+
+  &:hover {
+    .wishlist,
+    .similar {
+      visibility: visible;
+    }
+
+    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 5%);
+  }
+}

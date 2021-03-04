@@ -1,0 +1,43 @@
+.filterBar {
+  width: 14rem;
+  border: 1px solid #e9e9ed;
+  border-left: none;
+  span {
+    font-size: 12px;
+  }
+  h2 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .gender {
+    display: flex;
+    flex-direction: column;
+    span {
+      font-weight: 700;
+    }
+  }
+
+  .padding {
+    padding: 14px 16px;
+  }
+
+  .borderBottom {
+    border-bottom: 1px solid #e9e9ed;
+  }
+  .ant-radio-wrapper {
+    padding-bottom: 4px;
+    width: 100%;
+  }
+  .ant-checkbox-group {
+    display: flex;
+    flex-direction: column;
+  }
+  .ant-checkbox-wrapper {
+    padding-bottom: 4px;
+  }
+  .ant-checkbox-wrapper + .ant-checkbox-wrapper {
+    margin: 0;
+  }
+}

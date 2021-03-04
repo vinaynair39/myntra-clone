@@ -5,7 +5,7 @@ interface Review {
   comment: string;
 }
 
-interface Product {
+export interface Product {
   id: string;
   brandName: string;
   productName: string;
@@ -15,19 +15,29 @@ interface Product {
   originalPrice: number;
   discountPercent: number;
   reviews: Review[];
+  images: string[];
+  color: string[];
+  postedAt: number;
+  rating: number;
+  category: string;
+  gender: "MEN" | "WOMEN" | "BOYS" | "GIRLS";
 }
 
 interface Bag {
   bag: Product[];
   wishList: Product[];
+  allProducts: Product[];
 }
 
-const initialState = { bag: [], wishList: [] } as Bag;
+const initialState = { bag: [], wishList: [], allProducts: [] } as Bag;
 
 const BagSlice = createSlice({
   name: "bag",
   initialState,
   reducers: {
+    setAllProducts: (state, action) => {
+      state.allProducts = action.payload;
+    },
     addInBag: (state, action) => {
       state.bag.push(action.payload);
     },
@@ -50,6 +60,6 @@ const BagSlice = createSlice({
   },
 });
 
-export const { addInBag, addInWishlist, removeInBag, removeInWishList } = BagSlice.actions;
+export const { addInBag, addInWishlist, removeInBag, removeInWishList, setAllProducts } = BagSlice.actions;
 
 export default BagSlice.reducer;

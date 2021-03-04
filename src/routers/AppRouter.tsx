@@ -1,13 +1,15 @@
+import Detail from "pages/ShirtDetailPage/ShirtDetailPage";
+import Shirts from "pages/Shirts/Shirts";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import App from "../App";
 
 interface Props {}
 const AppRouter: React.FC<Props> = ({}) => {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact component={App} />
+        <Route path="/" exact component={Shirts} />
+        <Route path="/shirts/:id" exact component={Detail} />
       </Switch>
     </Router>
   );

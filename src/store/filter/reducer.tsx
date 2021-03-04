@@ -1,33 +1,53 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface FilterState {
+export interface FilterState {
+  gender: "MEN" | "WOMEN" | "BOYS" | "GIRLS" | null;
   brand: string[];
   price: string[];
   color: string[];
   discountRange: number | null;
+  categories: string[];
+  text: string;
 }
 
-const initialState = { brand: [], price: [], color: [], discountRange: null } as FilterState;
+const initialState = { gender: null, brand: [], price: [], color: [], discountRange: null, text: "", categories: [] } as FilterState;
 
 const FilterSlice = createSlice({
   name: "filter",
   initialState,
   reducers: {
-    setBrand: (state, action) => {
+    setGenderFilter: (state, action) => {
+      state.gender = action.payload;
+    },
+    setBrandFilter: (state, action) => {
       state.brand = action.payload;
     },
-    setPrice: (state, action) => {
+    setPriceFilter: (state, action) => {
       state.price = action.payload;
     },
-    setColor: (state, action) => {
+    setColorFilter: (state, action) => {
       state.color = action.payload;
     },
-    setDiscountRange: (state, action) => {
+    setDiscountRangeFilter: (state, action) => {
       state.discountRange = action.payload;
+    },
+    setTextFilter: (state, action) => {
+      state.text = action.payload;
+    },
+    setCategoriesFilter: (state, action) => {
+      state.categories = action.payload;
     },
   },
 });
 
-export const { setBrand, setPrice, setColor, setDiscountRange } = FilterSlice.actions;
+export const {
+  setBrandFilter,
+  setPriceFilter,
+  setColorFilter,
+  setDiscountRangeFilter,
+  setGenderFilter,
+  setTextFilter,
+  setCategoriesFilter,
+} = FilterSlice.actions;
 
 export default FilterSlice.reducer;

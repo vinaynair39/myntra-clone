@@ -5,7 +5,10 @@ import reportWebVitals from "./reportWebVitals";
 import store from "./store/store";
 import AppRouter from "routers/AppRouter";
 import "./index.scss";
+import { setAllProducts } from "store/bag/reducer";
+import { products } from "utils/Products";
 
+store.dispatch(setAllProducts(products));
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

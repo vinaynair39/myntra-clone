@@ -1,0 +1,57 @@
+.sortByMenu {
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #282c3f;
+  cursor: pointer;
+  position: relative;
+  width: 240px;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 2px;
+  background-color: #fff;
+  border: 1px solid #d4d5d9;
+
+  .icon {
+    position: absolute;
+    right: 16px;
+  }
+  .label {
+    padding-left: 4px;
+    font-weight: 700;
+  }
+
+  ul {
+    display: none;
+    padding: 14px 0 14px 0;
+    position: absolute;
+    z-index: 10;
+    border: 1px solid #d4d5d9;
+    background-color: white;
+    border-top: none;
+    width: 240px;
+    left: 0;
+    top: 34px;
+    button {
+      padding-bottom: 0.5rem;
+      padding-top: 0.5rem;
+      width: 100%;
+      text-align: start;
+      padding-left: 14px;
+      &:first-child {
+        padding-top: 4px;
+      }
+
+      &:hover {
+        background-color: #d4d5d9;
+      }
+    }
+  }
+
+  &:hover {
+    ul {
+      display: block;
+    }
+
+    border-bottom: none;
+  }
+}

@@ -1,3 +1,4 @@
+@import "../../styles/style";
 .navbar {
   display: grid;
   height: 4.5rem;
@@ -22,6 +23,7 @@
       padding: 0 17px;
       font-size: 12px;
       font-weight: 700;
+      color: $h1-color;
     }
   }
 
@@ -41,8 +43,7 @@
         fill: grey;
       }
     }
-    input {
-      display: inline-block;
+    .input {
       font-size: 14px;
       height: 16px;
       line-height: 24px;
@@ -61,6 +62,9 @@
       &:focus {
         background: white;
         border: 2px solid #f5f5f6;
+        &::placeholder {
+          opacity: 0;
+        }
       }
     }
   }
@@ -83,6 +87,7 @@
         padding-top: 4px;
         font-size: 10px;
         font-weight: 600;
+        margin: 0;
       }
       &:first-child {
         padding-left: 0;

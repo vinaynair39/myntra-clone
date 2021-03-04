@@ -5,11 +5,22 @@ import { ReactComponent as Bag } from "assets/bag.svg";
 import { ReactComponent as Heart } from "assets/heart.svg";
 import { ReactComponent as Profile } from "assets/profile.svg";
 import { ReactComponent as Search } from "assets/search.svg";
-
+import { setTextFilter } from "store/filter/reducer";
 import styles from "./Navbar.module.scss";
+import { AutoComplete } from "antd";
+import { useDispatch } from "react-redux";
 
 interface Props {}
 const Navbar: React.FC<Props> = ({}) => {
+  const [value, setValue] = useState("");
+  const dispatch = useDispatch();
+  const onSelect = (data: string) => {
+    console.log("onSelect", data);
+  };
+  const onSearch = (data: string) => {
+    setValue(data);
+  };
+
   return (
     <div className={styles.navbar}>
       <div className={styles.logo}>
@@ -26,7 +37,18 @@ const Navbar: React.FC<Props> = ({}) => {
         <div className={styles.searchbarIcon}>
           <Search />
         </div>
-        <input type="text" placeholder="Search for products, brands and more" />
+        {/* <AutoComplete className={styles.input} onSelect={onSelect} onSearch={onSearch} placeholder="input here" /> */}
+        <input
+          type="text"
+          className={styles.input}
+          placeholder="Search for products, brands and more"
+          onChange={(event) => {
+            setValue(event.target.value);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") dispatch(setTextFilter(value));
+          }}
+        />
       </div>
 
       <div className={styles.profiles}>
@@ -34,14 +56,14 @@ const Navbar: React.FC<Props> = ({}) => {
           <Profile />
           <p>Profile</p>
         </div>
-        <div className={styles.profileItem}>
+        <Link to="/wishlist" className={styles.profileItem}>
           <Heart />
           <p>Wishlist</p>
-        </div>
-        <div className={styles.profileItem}>
+        </Link>
+        <Link to="/bag" className={styles.profileItem}>
           <Bag />
           <p>Bag</p>
-        </div>
+        </Link>
       </div>
     </div>
   );

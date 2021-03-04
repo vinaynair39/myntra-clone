@@ -20,3 +20,14 @@ code {
 a {
   text-decoration: none;
 }
+
+li {
+  list-style: none;
+}
+button {
+  outline: none;
+  border: none;
+  display: block;
+  background: none;
+  cursor: pointer;
+}

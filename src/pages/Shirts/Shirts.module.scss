@@ -1,0 +1,33 @@
+.shirts {
+  padding: 16px 9%;
+
+  .breadcrumb {
+    font-size: 12px;
+  }
+
+  .breadcrumbItem {
+    font-weight: 700;
+  }
+  .row2 {
+    padding-top: 8px;
+    span {
+      font-weight: 700;
+    }
+  }
+  .row3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #d4d5d9;
+    h1 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 16px 0 8px 0;
+    }
+  }
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+  }
+}
