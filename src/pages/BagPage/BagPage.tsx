@@ -41,7 +41,7 @@ const BagPage: React.FC<Props> = ({}) => {
           </div>
         </div>
       ) : (
-        <Empty name="Bag" />
+        <Empty name="Your Bag is Empty" />
       )}
     </Layout>
   );

@@ -6,19 +6,22 @@ import { useHistory } from "react-router-dom";
 
 interface Props {
   name: string;
+  drawer?: boolean;
 }
-const Empty: React.FC<Props> = ({ name }) => {
+const Empty: React.FC<Props> = ({ name, drawer = false }) => {
   const history = useHistory();
   return (
     <div className="empty">
-      <h1>Your {name} is empty</h1>
-      <div className="animation">
-        <Lottie
-          options={{
-            animationData: animation,
-          }}
-        />
-      </div>
+      <h1>{name}</h1>
+      {!drawer && (
+        <div className="animation">
+          <Lottie
+            options={{
+              animationData: animation,
+            }}
+          />
+        </div>
+      )}
       <button onClick={() => history.push("/")}>Go Home</button>
     </div>
   );

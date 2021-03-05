@@ -19,7 +19,7 @@ const Wishlist: React.FC<Props> = ({}) => {
           <CardList data={wishList} forWishlist />
         </div>
       ) : (
-        <Empty name="Wishlist" />
+        <Empty name="Your Wishlist is empty" />
       )}
     </Layout>
   );
