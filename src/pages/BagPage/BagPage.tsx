@@ -1,12 +1,13 @@
 import Layout from "containers/Layout/Layout";
 import List from "containers/List/List";
-import React, { useEffect } from "react";
-import { Modal } from "antd";
+import React from "react";
+import { message, Modal } from "antd";
 
 import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "store/store";
 import "./BagPage.scss";
 import { clearBag } from "store/bag/reducer";
+import Empty from "utils/Empty";
 
 interface Props {}
 const BagPage: React.FC<Props> = ({}) => {
@@ -19,27 +20,29 @@ const BagPage: React.FC<Props> = ({}) => {
 
   return (
     <Layout>
-      <div className="bagPage">
-        <div className="bag-list">
-          <h1 className="pageTitle">Bag</h1>
-          <List products={bag} />
+      {bag.length > 0 ? (
+        <div className="bagPage">
+          <div className="bag-list">
+            <h1 className="pageTitle">Bag</h1>
+            <List products={bag} />
+          </div>
+          <div className="summary">
+            <h1>
+              Total Amount: <span>{totalAmount}</span>
+            </h1>
+            <button
+              onClick={() => {
+                message.success("Successfully Purchased");
+                dispatch(clearBag());
+              }}
+            >
+              Buy
+            </button>
+          </div>
         </div>
-        <div className="summary">
-          <h1>
-            Total Amount: <span>{totalAmount}</span>
-          </h1>
-          <button
-            onClick={() => {
-              Modal.success({
-                content: "Successfull!",
-              });
-              dispatch(clearBag());
-            }}
-          >
-            Buy
-          </button>
-        </div>
-      </div>
+      ) : (
+        <Empty name="Bag" />
+      )}
     </Layout>
   );
 };

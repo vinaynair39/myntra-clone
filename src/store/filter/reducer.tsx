@@ -37,6 +37,9 @@ const FilterSlice = createSlice({
     setCategoriesFilter: (state, action) => {
       state.categories = action.payload;
     },
+    clearFilter: (state) => {
+      state = initialState;
+    },
   },
 });
 
@@ -48,6 +51,7 @@ export const {
   setGenderFilter,
   setTextFilter,
   setCategoriesFilter,
+  clearFilter,
 } = FilterSlice.actions;
 
 export default FilterSlice.reducer;

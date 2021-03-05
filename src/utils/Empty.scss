@@ -1,0 +1,34 @@
+@import "../styles/style";
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4vh;
+  position: relative;
+  justify-content: center;
+  h1 {
+    text-align: center;
+    position: absolute;
+    top: 3vh;
+    font-size: 6vh;
+    text-transform: uppercase;
+
+    color: $blue;
+    font-weight: 700;
+  }
+  .animation {
+    position: relative;
+    width: 50vw;
+  }
+
+  button {
+    position: absolute;
+    bottom: 25vh;
+    background-color: $primary;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 4px;
+    width: 10%;
+    // font-size: 1.5rem;
+  }
+}
