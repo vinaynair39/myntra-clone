@@ -7,6 +7,7 @@ import AppRouter from "routers/AppRouter";
 import "./index.scss";
 import { setAllProducts } from "store/bag/reducer";
 import { products } from "utils/Products";
+import "react-image-lightbox/style.css";
 
 store.dispatch(setAllProducts(products));
 ReactDOM.render(

@@ -7,8 +7,8 @@ import { setSortType } from "store/sortBy/reducer";
 interface Props {}
 const SortByMenu: React.FC<Props> = ({}) => {
   const [current, setCurrent] = useState({
-    key: "new",
-    value: "What's New",
+    key: "recommended",
+    value: "Recommended",
   });
   const dispatch = useDispatch();
 

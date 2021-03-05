@@ -1,12 +1,16 @@
 .shirts {
-  padding: 16px 9%;
-
+  padding: 16px 0 16px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .breadcrumb {
     font-size: 12px;
   }
-
   .breadcrumbItem {
     font-weight: 700;
+  }
+  .rows {
+    width: 90%;
   }
   .row2 {
     padding-top: 8px;
@@ -29,5 +33,6 @@
   .main {
     display: grid;
     grid-template-columns: 1fr 6fr;
+    width: 90%;
   }
 }

@@ -1,0 +1,88 @@
+@import "../../styles/style";
+
+.listItem {
+  display: flex;
+  flex-direction: column;
+  width: 32rem;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  border: 1px solid #eaeaec;
+  padding: 1rem;
+  .main {
+    display: flex;
+  }
+  img {
+    width: 8vw;
+    margin-right: 1rem;
+  }
+  .info {
+    padding-top: px;
+    .dropdowns {
+      padding-top: 1rem;
+      display: flex;
+
+      & > div {
+        padding-right: 1rem;
+      }
+    }
+  }
+  .brandName {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .soldBy {
+    font-size: 10px;
+    opacity: 0.9;
+  }
+
+  .columns {
+    display: flex;
+    width: 18vw;
+    justify-content: space-between;
+  }
+
+  .checks {
+    padding-top: 8px;
+    svg {
+      path {
+        fill: $blue;
+      }
+    }
+    & > div {
+      padding-top: 8px;
+    }
+  }
+  .column2 {
+    .price {
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .discount {
+      display: flex;
+
+      .orignalPrice {
+        text-decoration: line-through;
+      }
+      .discountRange {
+        font-size: 14px;
+        padding-left: 8px;
+        color: #ff905a;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .buttons {
+    display: grid;
+    width: 100%;
+    padding-top: 16px;
+    grid-template-columns: 10rem 20rem;
+    button {
+      text-transform: uppercase;
+      padding: 16px;
+      border: 1px solid #eaeaec;
+    }
+  }
+}

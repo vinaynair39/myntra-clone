@@ -20,13 +20,13 @@ export const products = [
     postedAt: 1431787516,
     numberOfReviews: 50,
     rating: 4.1,
-    color: "WHITE & BLUE",
+    color: ["WHITE", "BLUE"],
     gender: "MALE",
   },
   {
-    id: "828019",
+    id: "82019",
     brandName: "LEVIS",
-    productName: "Slim Fit Checked Casual Shirt",
+    productName: "Slim Fit Checked Shirt",
     price: 1599,
     originalPrice: 1999,
     discountPercent: 20,
@@ -44,13 +44,13 @@ export const products = [
     postedAt: 1584888316,
     numberOfReviews: 65,
     rating: 4.5,
-    color: "GREEN & BLUE",
+    color: ["GREEN", "BLUE"],
     gender: "MALE",
   },
   {
     id: "111354",
     brandName: "LEVIS",
-    productName: "Regular Fit Linen Solid Casual Shirt",
+    productName: "Regular Fit Linen Solid Shirt",
     price: 2639,
     originalPrice: 3299,
     discountPercent: 20,
@@ -68,7 +68,7 @@ export const products = [
     postedAt: 1326740656,
     numberOfReviews: 60,
     rating: 4.2,
-    color: "WHITE",
+    color: ["WHITE"],
     gender: "MALE",
   },
   {
@@ -92,7 +92,7 @@ export const products = [
     postedAt: 1312257136,
     numberOfReviews: 46,
     rating: 4.0,
-    color: "BLUE",
+    color: ["BLUE"],
     gender: "MALE",
   },
   {
@@ -116,13 +116,13 @@ export const products = [
     postedAt: 1479014104,
     numberOfReviews: 30,
     rating: 3.9,
-    color: "MUSTARD YELLOW & BROWN",
+    color: ["MUSTARD YELLOW", "BROWN"],
     gender: "MALE",
   },
   {
     id: "156780",
     brandName: "JACK & JONES",
-    productName: "REGULAR FIT CHECKED CASUAL SHIRT",
+    productName: "CHECKED CASUAL SHIRT",
     price: 1499,
     originalPrice: 2999,
     discountPercent: 50,
@@ -140,7 +140,7 @@ export const products = [
     postedAt: 1513631715,
     numberOfReviews: 120,
     rating: 4.4,
-    color: "GREEN & OFF-WHITE",
+    color: ["GREEN", "OFF-WHITE"],
     gender: "MALE",
   },
   {
@@ -164,7 +164,7 @@ export const products = [
     postedAt: 1544940919,
     numberOfReviews: 621,
     rating: 4.6,
-    color: "RED & BLUE",
+    color: ["RED", "BLUE"],
     gender: "MALE",
   },
   {
@@ -188,7 +188,7 @@ export const products = [
     postedAt: 1349661604,
     numberOfReviews: 70,
     rating: 3.9,
-    color: "MUSTARD YELLOW",
+    color: ["MUSTARD YELLOW"],
     gender: "MALE",
   },
   {
@@ -212,13 +212,13 @@ export const products = [
     postedAt: 1264271400,
     numberOfReviews: 360,
     rating: 4.2,
-    color: "GREEN",
+    color: ["GREEN"],
     gender: "MALE",
   },
   {
     id: "108974",
     brandName: "HANCOCK",
-    productName: "REGULAR FIT FLORAL PRINTED CASUAL SHIRT",
+    productName: "REGULAR FIT FLORAL SHIRT",
     price: 1379,
     originalPrice: 2299,
     discountPercent: 40,
@@ -236,7 +236,7 @@ export const products = [
     postedAt: 1604237061,
     numberOfReviews: 30,
     rating: 3.8,
-    color: "BLACK & BLUE",
+    color: ["BLACK", "BLUE"],
     gender: "MALE",
   },
   {
@@ -260,7 +260,7 @@ export const products = [
     postedAt: 1575221421,
     numberOfReviews: 77,
     rating: 3.5,
-    color: "BLACK & WHITE",
+    color: ["BLACK", "WHITE"],
     gender: "MALE",
   },
   {
@@ -284,8 +284,120 @@ export const products = [
     postedAt: 1367346600,
     numberOfReviews: 144,
     rating: 4.2,
-    color: "PINK",
+    color: ["PINK"],
     gender: "MALE",
+  },
+  {
+    id: "567845",
+    brandName: "GINI & JONY",
+    productName: "REGULAR FIT CHECKED SHIRT",
+    price: 1049,
+    originalPrice: 1399,
+    discountPercent: 25,
+    images: [
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11083618/2021/2/12/495ec6d7-4e48-4c67-9c2c-d109b67b573e1613121119602-Gini-and-Jony-Girls-Maroon--White-Regular-Fit-Checked-Casual-1.jpg",
+
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11083618/2021/2/12/a957105b-debd-4f52-bef9-a15884e42c091613121119583-Gini-and-Jony-Girls-Maroon--White-Regular-Fit-Checked-Casual-2.jpg",
+
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11083618/2021/2/12/79d9d478-e230-44b8-8e10-866f151f70a51613121119564-Gini-and-Jony-Girls-Maroon--White-Regular-Fit-Checked-Casual-3.jpg",
+
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11083618/2021/2/12/5f0f0139-4007-4d29-9c01-2c211d9595a01613121119543-Gini-and-Jony-Girls-Maroon--White-Regular-Fit-Checked-Casual-4.jpg",
+
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11083618/2021/2/12/7e4a1ae9-fa5f-4d89-83ae-d92da3d333f51613121119527-Gini-and-Jony-Girls-Maroon--White-Regular-Fit-Checked-Casual-5.jpg",
+    ],
+    postedAt: 1300628719,
+    numberOfReviews: 50,
+    rating: 4.0,
+    color: ["MAROON", "WHITE"],
+    gender: "GIRLS",
+  },
+  {
+    id: "667788",
+    brandName: "PEPE JEANS",
+    productName: "REGULAR FIT PRINTED CASUAL SHIRT",
+    price: 549,
+    originalPrice: 999,
+    discountPercent: 45,
+    images: [
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11271624/2021/1/28/ed23bd79-40c6-467e-b516-316242d7fcde1611833536029PepeJeansGirlsLimeGreenRegularFitPrintedCasualShirt1.jpg",
+
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11271624/2021/1/28/fd787204-2eb2-48cb-89cc-75253c861f1b1611833536070PepeJeansGirlsLimeGreenRegularFitPrintedCasualShirt2.jpg",
+
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11271624/2021/1/28/557d1507-e314-4228-9179-1a5cf67617981611833536095PepeJeansGirlsLimeGreenRegularFitPrintedCasualShirt3.jpg",
+
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11271624/2021/1/28/da7fa80e-0ceb-4eb0-aeea-c15c726c45f91611833536118PepeJeansGirlsLimeGreenRegularFitPrintedCasualShirt4.jpg",
+
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11271624/2021/1/28/6a3b439a-d106-46b6-b099-b70dfd6aecf31611833536144PepeJeansGirlsLimeGreenRegularFitPrintedCasualShirt5.jpg",
+    ],
+    postedAt: 1262334919,
+    numberOfReviews: 100,
+    rating: 4.5,
+    color: ["LIME GREEEN"],
+    gender: "GIRLS",
+  },
+  {
+    id: "990077",
+    brandName: "GAP",
+    productName: "FADED DENIM CASUAL SHIRT",
+    price: 1839,
+    originalPrice: 2299,
+    discountPercent: 20,
+    images: [
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/12810666/2021/2/8/87562077-aebf-4108-970e-937ba6879f771612786593723-GAP-Girls-Blue-Regular-Fit-Faded-Denim-Cotton-Casual-Shirt-1-1.jpg",
+
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/12810666/2021/2/8/db1b28e0-39ce-4272-ab85-b23639dac6ca1612786593700-GAP-Girls-Blue-Regular-Fit-Faded-Denim-Cotton-Casual-Shirt-1-2.jpg",
+
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/12810666/2021/2/8/b0a2876e-11e9-4dce-b44e-ca4140ee775c1612786593681-GAP-Girls-Blue-Regular-Fit-Faded-Denim-Cotton-Casual-Shirt-1-3.jpg",
+
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/12810666/2021/2/8/c04e6bcd-7ced-4249-aa34-6e2c986c21a71612786593662-GAP-Girls-Blue-Regular-Fit-Faded-Denim-Cotton-Casual-Shirt-1-4.jpg",
+
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/12810666/2021/2/8/3428b3aa-0054-41fa-90d5-90393cfa24ca1612786593643-GAP-Girls-Blue-Regular-Fit-Faded-Denim-Cotton-Casual-Shirt-1-5.jpg",
+    ],
+    postedAt: 1240356919,
+    numberOfReviews: 150,
+    rating: 4.9,
+    color: ["BLUE"],
+    gender: "GIRLS",
+  },
+  {
+    id: "445599",
+    brandName: "H & M",
+    productName: "OVERSIZED COTTON SHIRT",
+    price: 1299,
+    originalPrice: 1299,
+    discountPercent: 0,
+    images: [
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2021/2/17/804706d7-bf6d-42de-9eff-0faf4a67f10d1613577678101-1.jpg",
+
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/productimage/2021/2/17/4a25e187-c093-47b5-a2ea-6bd336c03f261613577678117-2.jpg",
+    ],
+    postedAt: 1201791021,
+    numberOfReviews: 290,
+    rating: 4.0,
+    color: ["PURPLE"],
+    gender: "GIRLS",
+  },
+  {
+    id: "301095",
+    brandName: "PEPE JEANS",
+    productName: "REGULAR FIT SOLID CASUAL DENIM SHIRT",
+    price: 959,
+    originalPrice: 1599,
+    discountPercent: 40,
+    images: [
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11271594/2021/1/28/5131ba41-11e2-4344-bc7b-31258f96af721611833535290PepeJeansGirlsBlueRegularFitSolidCasualDenimShirt1.jpg",
+
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11271594/2021/1/28/43134f0d-4b37-4208-8e0b-b56c08392ec31611833535334PepeJeansGirlsBlueRegularFitSolidCasualDenimShirt2.jpg",
+
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11271594/2021/1/28/d584e3ae-f16f-410a-8c61-9255a88bdf0a1611833535355PepeJeansGirlsBlueRegularFitSolidCasualDenimShirt3.jpg",
+
+      "https://assets.myntassets.com/h_1440,q_90,w_1080/v1/assets/images/11271594/2021/1/28/391ba51a-1d2f-4b2c-bb57-a8d68fe841641611833535377PepeJeansGirlsBlueRegularFitSolidCasualDenimShirt4.jpg",
+    ],
+    postedAt: 1179365841,
+    numberOfReviews: 50,
+    rating: 4.1,
+    color: ["BLUE"],
+    gender: "GIRLS",
   },
   {
     id: "4001",

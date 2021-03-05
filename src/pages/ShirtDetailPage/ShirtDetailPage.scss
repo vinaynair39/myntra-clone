@@ -1,0 +1,218 @@
+@import "../../styles/style";
+.detail {
+  // width: 100vh;
+  transition: all 0.3 ease-in-out;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 32px 9% 32px 9%;
+
+  .breadcrumb {
+    font-size: 14px;
+  }
+  .breadcrumbItem {
+    font-weight: 700;
+  }
+  .main {
+    padding-top: 16px;
+  }
+
+  .images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+    justify-content: space-between;
+    transition: all 0.3 ease-in-out;
+    position: relative;
+    .image {
+      overflow: hidden;
+      box-sizing: border-box;
+      .imageTag {
+        transition: all 0.2s ease-in-out;
+        width: 24vw;
+        cursor: zoom-in;
+        &:hover {
+          transform: scale(1.03);
+        }
+      }
+    }
+  }
+
+  h1 {
+    font-size: 1px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 16px 0 8px 0;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    .content {
+      padding-left: 32px;
+      width: 100%;
+
+      .name {
+        h1 {
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 1;
+          margin: 0;
+          padding: 0;
+          padding-top: 5px;
+        }
+        h2 {
+          color: #535665;
+          padding: 4px 20px 14px 0;
+          font-size: 20px;
+          opacity: 0.8;
+          font-weight: 400;
+          margin: 0;
+        }
+      }
+
+      .reviews {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 8rem;
+        font-size: 14px;
+        color: #535766;
+        padding: 6px 12px;
+        border: 1px solid #eaeaec;
+        svg {
+          path {
+            fill: #535665;
+          }
+        }
+      }
+      .border {
+        border-bottom: 1px solid #d4d5d9;
+        width: 100%;
+        padding-top: 12px;
+      }
+
+      .contentPrice {
+        .row1 {
+          padding-top: 1rem;
+          display: flex;
+          align-items: center;
+
+          .price {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1;
+            margin: 0;
+          }
+          .originalPrice {
+            font-size: 18px;
+            padding-left: 8px;
+            text-decoration: line-through;
+            color: #535665;
+          }
+          .discount {
+            font-size: 18px;
+            padding-left: 8px;
+
+            color: #ff905a;
+            font-weight: 700;
+          }
+        }
+
+        .row2 {
+          color: $blue;
+          font-weight: 700;
+          padding-top: 8px;
+        }
+      }
+
+      .contentPriceAlt {
+        .row1 {
+          .price,
+          .originalPrice,
+          .discount {
+            font-size: 16px;
+          }
+        }
+
+        .row2 {
+          color: #282c3f;
+          font-weight: 500;
+          padding-top: 4px;
+          span {
+            font-weight: 700;
+          }
+        }
+      }
+
+      .buttons {
+        display: flex;
+        width: 90%;
+        margin: 28px 0 14px 0;
+        button,
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-transform: uppercase;
+          font-weight: 700;
+          cursor: pointer;
+          background-color: #ff3e6c;
+          border: 1px solid #ff3e6c;
+          color: #fff;
+          text-align: center;
+          width: 100%;
+          margin-right: 3%;
+          padding: 14px 0;
+          border-radius: 4px;
+          font-size: 14px;
+          svg {
+            height: 20px;
+            width: 20px;
+            margin-right: 8px;
+
+            path {
+              fill: white;
+            }
+          }
+        }
+        .wishlist,
+        .wishlist-active {
+          background-color: white;
+          border: 1px solid #d4d5d9;
+          color: #282c3f;
+          width: 80%;
+          svg {
+            path {
+              fill: #282c3f;
+            }
+          }
+
+          &:hover {
+            border: 1px solid #535766;
+          }
+        }
+
+        .wishlist-active {
+          background-color: $h1-color;
+          color: white;
+          svg {
+            path {
+              fill: $primary;
+            }
+          }
+        }
+
+        .bag:hover {
+          background-color: lighten(#ff3e6c, 4%);
+        }
+
+        .bag2 {
+          svg {
+            margin: 0;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+}

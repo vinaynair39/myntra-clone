@@ -10,7 +10,6 @@ export interface Product {
   brandName: string;
   productName: string;
   soldBy: string;
-  size: number;
   price: number;
   originalPrice: number;
   discountPercent: number;
@@ -20,7 +19,10 @@ export interface Product {
   postedAt: number;
   rating: number;
   category: string;
+  numberOfReviews: number;
+  selectedSize: null | number;
   gender: "MEN" | "WOMEN" | "BOYS" | "GIRLS";
+  quantity: number;
 }
 
 interface Bag {
@@ -29,7 +31,7 @@ interface Bag {
   allProducts: Product[];
 }
 
-const initialState = { bag: [], wishList: [], allProducts: [] } as Bag;
+const initialState = { bag: [], wishList: [], numberOfReviews: 0, allProducts: [] } as Bag;
 
 const BagSlice = createSlice({
   name: "bag",
@@ -42,13 +44,17 @@ const BagSlice = createSlice({
       state.bag.push(action.payload);
     },
     addInWishlist: (state, action) => {
-      state.wishList.push(action.payload);
+      console.log(action.payload.id);
+      if (state.wishList.findIndex((item) => item.id === action.payload.id) === -1) state.wishList.push(action.payload);
     },
     removeInWishList: (state, action) => {
       state.wishList = state.wishList.filter((item) => item.id !== action.payload);
     },
     removeInBag: (state, action) => {
       state.bag = state.bag.filter((item) => item.id !== action.payload);
+    },
+    clearBag: (state) => {
+      state.bag = [];
     },
     updateInBag: (state, action) => {
       state.bag = state.bag.map((item) => {
@@ -60,6 +66,6 @@ const BagSlice = createSlice({
   },
 });
 
-export const { addInBag, addInWishlist, removeInBag, removeInWishList, setAllProducts } = BagSlice.actions;
+export const { addInBag, addInWishlist, removeInBag, removeInWishList, setAllProducts, updateInBag, clearBag } = BagSlice.actions;
 
 export default BagSlice.reducer;

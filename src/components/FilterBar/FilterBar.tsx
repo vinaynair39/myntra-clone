@@ -5,15 +5,18 @@ import { Checkbox } from "antd";
 import "./FilterBar.scss";
 import { CheckboxValueType } from "antd/lib/checkbox/Group";
 import { filterColors } from "utils/filterColors";
-import { useDispatch } from "react-redux";
-import { setGenderFilter, setDiscountRangeFilter, setCategoriesFilter, setColorFilter, setPriceFilter } from "store/filter/reducer";
+import { useDispatch, useSelector } from "react-redux";
+import { setGenderFilter, setDiscountRangeFilter, setColorFilter, setPriceFilter } from "store/filter/reducer";
+import { AppState } from "store/store";
 
 interface Props {}
 const FilterBar: React.FC<Props> = ({}) => {
-  const [gender, setGender] = useState<"MEN" | "WOMEN" | "BOYS" | "GIRLS" | null>(null);
-  const [categories, setCategories] = useState<CheckboxValueType[] | null>(null);
-  const [colors, setColors] = useState<CheckboxValueType[] | null>(null);
-  const [discountRange, setDiscountRange] = useState<number | null>(null);
+  const filters = useSelector((state: AppState) => state.filter);
+  const [gender, setGender] = useState<"MEN" | "WOMEN" | "BOYS" | "GIRLS" | null>(filters.gender);
+  const [colors, setColors] = useState<CheckboxValueType[]>(filters.color);
+  const [discountRange, setDiscountRange] = useState<number | null>(filters.discountRange);
+  const [price, setPrice] = useState<CheckboxValueType[]>(filters.price);
+
   const dispatch = useDispatch();
 
   const onGenderChange = (e: RadioChangeEvent) => {
@@ -26,31 +29,13 @@ const FilterBar: React.FC<Props> = ({}) => {
     dispatch(setDiscountRangeFilter(e.target.value));
   };
 
-  const onCategoriesChange = (checkedValues: CheckboxValueType[]) => {
-    setCategories(checkedValues);
-    dispatch(setCategoriesFilter(checkedValues));
-  };
   const onColorsChange = (checkedValues: CheckboxValueType[]) => {
     setColors(checkedValues);
     dispatch(setColorFilter(checkedValues));
   };
 
   const onPriceChange = (checkedValues: CheckboxValueType[]) => {
-    // let bigestRange: number[] = [];
-    // for (let item of checkedValues) {
-    //   const stringItem = item.toString();
-    //   const [start, end] = stringItem.split("-");
-    //   if (bigestRange.length === 0) {
-    //     bigestRange = [parseInt(start), parseInt(end)];
-    //   } else {
-    //     const intStart = parseInt(start);
-    //     const intEnd = parseInt(end);
-    //     if (bigestRange[0] > intStart) bigestRange[0] = intStart;
-    //     if (bigestRange[1] < intEnd) bigestRange[1] = intEnd;
-    //   }
-    // }
-    // dispatch(setPriceFilter(bigestRange));
-
+    setPrice(checkedValues);
     dispatch(setPriceFilter(checkedValues));
   };
 
@@ -64,16 +49,10 @@ const FilterBar: React.FC<Props> = ({}) => {
           <Radio value={"GIRLS"}>Girls</Radio>
         </Radio.Group>
       </div>
-      {/* <div className="categories padding borderBottom">
-        <h2>CATEGORIES</h2>
-        <Checkbox.Group onChange={onCategoriesChange}>
-          <Checkbox value={"SHIRTS"}>Shirts</Checkbox>
-          <Checkbox value={"SLEEP SHIRTS"}>Sleep Shirts</Checkbox>
-        </Checkbox.Group>
-      </div> */}
+
       <div className="categories padding borderBottom">
         <h2>Price</h2>
-        <Checkbox.Group onChange={onPriceChange}>
+        <Checkbox.Group onChange={onPriceChange} value={price}>
           <Checkbox value={"374-1531"}>Rs. 374 to Rs. 1531</Checkbox>
           <Checkbox value={"1531-2688"}>Rs. 1531 to Rs. 2688</Checkbox>
           <Checkbox value={"2688-3845"}>Rs. 2688 to Rs. 3845</Checkbox>
@@ -82,10 +61,10 @@ const FilterBar: React.FC<Props> = ({}) => {
       </div>
       <div className="colors padding borderBottom">
         <h2>Colors</h2>
-        <Checkbox.Group onChange={onColorsChange}>
+        <Checkbox.Group onChange={onColorsChange} value={colors}>
           {filterColors.map((item) => {
             return (
-              <Checkbox value={item.name} style={{ display: "flex" }}>
+              <Checkbox value={item.name} key={item.name} style={{ display: "flex" }}>
                 <div style={{ display: "flex" }}>
                   <p style={{ backgroundColor: item.hex, width: 16, height: 16, borderRadius: 100, border: "1px solid #d6d6d6" }}></p>
                   <p style={{ marginLeft: 8 }}> {item.name}</p>

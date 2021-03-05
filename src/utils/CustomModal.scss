@@ -1,0 +1,50 @@
+@import "../styles/style";
+
+.bag-done {
+  background-color: $primary;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.customModal {
+  img {
+    width: 6vw;
+  }
+  .info {
+    display: flex;
+    .contentPrice {
+      padding-left: 16px;
+      .row1 {
+        padding-top: 0.5rem;
+        display: flex;
+        align-items: center;
+        .price {
+          font-size: 20px;
+          font-weight: 700;
+          line-height: 1;
+          margin: 0;
+        }
+        .originalPrice {
+          font-size: 18px;
+          padding-left: 8px;
+          text-decoration: line-through;
+          color: #535665;
+        }
+        .discount {
+          font-size: 18px;
+          padding-left: 8px;
+
+          color: #ff905a;
+          font-weight: 700;
+        }
+      }
+    }
+    .brandName {
+      padding-top: 8px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+  }
+}

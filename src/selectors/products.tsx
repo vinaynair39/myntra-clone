@@ -16,7 +16,7 @@ export default (products: Product[], { filters, sortBy }: { filters: FilterState
       if (!!lowercasedValue) {
         const filteredData = Object.keys(product).some((key: any) => {
           const currentKey = product[key as keyof Product];
-          return excludeColumns.includes(key) ? false : currentKey.toString().toLowerCase().includes(lowercasedValue);
+          return excludeColumns.includes(key) ? false : currentKey!.toString().toLowerCase().includes(lowercasedValue);
         });
         textMatch = filteredData;
       } else {

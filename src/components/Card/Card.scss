@@ -7,7 +7,7 @@
   position: relative;
   overflow: hidden;
   margin-bottom: 32px;
-  margin-left: 28px;
+  margin-left: 40px;
 
   p {
     margin: 0;
@@ -80,6 +80,19 @@
     }
   }
 
+  .removeFromWishlist {
+    position: absolute;
+    top: 16px;
+    right: 10px;
+    background-color: #e9e9eb;
+    border-radius: 100%;
+    svg {
+      path {
+        fill: $p-color;
+      }
+    }
+  }
+
   .brand {
     font-weight: 700;
   }
@@ -111,5 +124,24 @@
     }
 
     box-shadow: 0 8px 16px 0 rgb(0 0 0 / 5%);
+  }
+}
+
+.card-wishlist {
+  height: 388px;
+  outline: 1px solid #e9e9eb;
+
+  .moveToBag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+    padding: 8px 0;
+    outline: 1px solid #e9e9eb;
+    button {
+      color: $primary;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
   }
 }

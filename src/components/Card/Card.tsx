@@ -1,12 +1,12 @@
 import { Carousel } from "antd";
-import { CopyOutlined, HeartOutlined } from "@ant-design/icons";
-import { Drawer } from "antd";
-
+import { CloseOutlined, CopyOutlined, HeartOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
-import "./Card.scss";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addInWishlist } from "store/bag/reducer";
+import { addInWishlist, removeInWishList } from "store/bag/reducer";
+import { setShowSimilar } from "store/common/reducer";
+import "./Card.scss";
+import CustomModal from "utils/CustomModal";
 
 export interface CardProp {
   id: string;
@@ -16,29 +16,46 @@ export interface CardProp {
   originalPrice: number;
   discountPercent: number;
   images: string[];
+  color: string[];
 }
 
-const Card: React.FC<CardProp> = ({ images, brandName, productName, price, originalPrice, discountPercent, id }) => {
+const Card: React.FC<CardProp & { wishListed: boolean; forWishlist?: boolean }> = ({
+  images,
+  color,
+  brandName,
+  productName,
+  price,
+  originalPrice,
+  discountPercent,
+  id,
+  wishListed,
+  forWishlist = false,
+}) => {
   const [autoPlay, setAutoPlay] = useState(false);
-  const [drawerVisible, setDrawerVisible] = useState(false);
   const dispatch = useDispatch();
-  const [insideWishList, setInsideWishList] = useState(false);
+  const [insideWishList, setInsideWishList] = useState(wishListed);
+  const [showModal, setShowModal] = useState(false);
+
   const toggleAddToWishList = () => {
     setInsideWishList(!insideWishList);
-    dispatch(
-      addInWishlist({
-        images,
-        brandName,
-        productName,
-        price,
-        originalPrice,
-        discountPercent,
-        id,
-      })
-    );
+    if (insideWishList) {
+      dispatch(removeInWishList(id));
+    } else {
+      dispatch(
+        addInWishlist({
+          images,
+          brandName,
+          productName,
+          price,
+          originalPrice,
+          discountPercent,
+          id,
+        })
+      );
+    }
   };
   return (
-    <div className="card" onMouseOver={() => setAutoPlay(true)} onMouseLeave={() => setAutoPlay(false)}>
+    <div className={forWishlist ? "card card-wishlist" : "card"} onMouseOver={() => setAutoPlay(true)} onMouseLeave={() => setAutoPlay(false)}>
       <Link to={"/shirts/" + id} className="imageContainer">
         <Carousel autoplay={autoPlay} dots={false}>
           {images.map((item, index) => {
@@ -48,22 +65,41 @@ const Card: React.FC<CardProp> = ({ images, brandName, productName, price, origi
       </Link>
       <div
         className="similar"
-        onClick={(event) => {
-          setDrawerVisible(true);
+        onClick={() => {
+          dispatch(
+            setShowSimilar({
+              query: color.join(" "),
+              id,
+            })
+          );
         }}
       >
         <button>
           <CopyOutlined />
         </button>
       </div>
-      <div className="wishlist">
-        <button onClick={toggleAddToWishList} className={insideWishList ? "buttonActive" : ""}>
-          <HeartOutlined /> Wishlist
-        </button>
-      </div>
+      {forWishlist && (
+        <div
+          className="removeFromWishlist"
+          onClick={() => {
+            dispatch(removeInWishList(id));
+          }}
+        >
+          <button>
+            <CloseOutlined />
+          </button>
+        </div>
+      )}
+      {!forWishlist && (
+        <div className="wishlist">
+          <button onClick={toggleAddToWishList} className={insideWishList ? "buttonActive" : ""}>
+            <HeartOutlined /> Wishlist
+          </button>
+        </div>
+      )}
       <Link to={"/shirts/" + id}>
         <div className="content">
-          <p className="brand">{brandName}</p>
+          {!forWishlist && <p className="brand">{brandName}</p>}
           <p className="product">{productName}</p>
           <div className="priceContainer">
             <span className="price">Rs. {price}</span>
@@ -72,19 +108,22 @@ const Card: React.FC<CardProp> = ({ images, brandName, productName, price, origi
           </div>
         </div>
       </Link>
-      <Drawer
-        title="Basic Drawer"
-        placement="right"
-        closable={false}
-        onClose={() => setDrawerVisible(false)}
-        visible={drawerVisible}
-        width={512}
-        closeIcon={true}
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Drawer>
+      {forWishlist && (
+        <div className="moveToBag">
+          <button
+            onClick={() => {
+              setShowModal(true);
+            }}
+          >
+            Move To bag
+          </button>
+        </div>
+      )}
+      <CustomModal
+        handleModalVisible={setShowModal}
+        isModalVisible={showModal}
+        product={{ images, color, brandName, productName, price, originalPrice, discountPercent, id }}
+      />
     </div>
   );
 };

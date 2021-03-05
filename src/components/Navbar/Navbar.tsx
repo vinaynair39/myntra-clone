@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import logo from "assets/logo.png";
 import { ReactComponent as Bag } from "assets/bag.svg";
 import { ReactComponent as Heart } from "assets/heart.svg";
@@ -8,45 +8,46 @@ import { ReactComponent as Search } from "assets/search.svg";
 import { setTextFilter } from "store/filter/reducer";
 import styles from "./Navbar.module.scss";
 import { AutoComplete } from "antd";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { AppState } from "store/store";
 
 interface Props {}
 const Navbar: React.FC<Props> = ({}) => {
-  const [value, setValue] = useState("");
   const dispatch = useDispatch();
-  const onSelect = (data: string) => {
-    console.log("onSelect", data);
-  };
-  const onSearch = (data: string) => {
-    setValue(data);
-  };
+  const text = useSelector((state: AppState) => state.filter.text);
+  const history = useHistory();
+  const [value, setValue] = useState(text);
+  const { pathname } = useLocation();
 
   return (
     <div className={styles.navbar}>
-      <div className={styles.logo}>
+      <Link to="/" className={styles.logo}>
         <img src={logo} alt="logo" />
-      </div>
+      </Link>
       <div className={styles.links}>
-        <Link to="/shop/men">MEN</Link>
-        <Link to="/shop/women">WOMEN</Link>
-        <Link to="/shop/kids">KIDS</Link>
-        <Link to="/shop/home-living">HOME & LIVING</Link>
-        <Link to="/shop/offers">OFFERS</Link>
+        <Link to="/">MEN</Link>
+        <Link to="/">WOMEN</Link>
+        <Link to="/">KIDS</Link>
+        <Link to="/">HOME & LIVING</Link>
+        <Link to="/">OFFERS</Link>
       </div>
       <div className={styles.searchbar}>
         <div className={styles.searchbarIcon}>
           <Search />
         </div>
-        {/* <AutoComplete className={styles.input} onSelect={onSelect} onSearch={onSearch} placeholder="input here" /> */}
         <input
           type="text"
           className={styles.input}
           placeholder="Search for products, brands and more"
+          value={value}
           onChange={(event) => {
             setValue(event.target.value);
           }}
           onKeyDown={(e) => {
-            if (e.key === "Enter") dispatch(setTextFilter(value));
+            if (e.key === "Enter") {
+              dispatch(setTextFilter(value));
+              if (pathname !== "/") history.push("/");
+            }
           }}
         />
       </div>
