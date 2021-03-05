@@ -41,10 +41,9 @@ const BagSlice = createSlice({
       state.allProducts = action.payload;
     },
     addInBag: (state, action) => {
-      state.bag.push(action.payload);
+      if (state.bag.findIndex((item) => item.id === action.payload.id) === -1) state.bag.push(action.payload);
     },
     addInWishlist: (state, action) => {
-      console.log(action.payload.id);
       if (state.wishList.findIndex((item) => item.id === action.payload.id) === -1) state.wishList.push(action.payload);
     },
     removeInWishList: (state, action) => {

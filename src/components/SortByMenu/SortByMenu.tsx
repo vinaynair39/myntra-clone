@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { DownOutlined } from "@ant-design/icons";
 import styles from "./SortByMenu.module.scss";
 import { useDispatch } from "react-redux";
-import { setSortType } from "store/sortBy/reducer";
+import { setSortType } from "store/sort/reducer";
 
 interface Props {}
 const SortByMenu: React.FC<Props> = ({}) => {

@@ -15,7 +15,8 @@ const BagPage: React.FC<Props> = ({}) => {
   let totalAmount = 0;
   const dispatch = useDispatch();
   bag.forEach((item) => {
-    totalAmount += item.price * item.quantity;
+    const quantity = typeof item.quantity === "number" ? item.quantity : 1;
+    totalAmount += item.price * quantity;
   });
 
   return (
