@@ -380,7 +380,7 @@ export const products = [
   {
     id: "301095",
     brandName: "PEPE JEANS",
-    productName: "REGULAR FIT SOLID CASUAL DENIM SHIRT",
+    productName: "REGULAR FIT SOLID DENIM SHIRT",
     price: 959,
     originalPrice: 1599,
     discountPercent: 40,
