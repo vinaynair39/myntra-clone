@@ -2,7 +2,7 @@ import React from "react";
 import Lottie from "lottie-react-web";
 import animation from "assets/empty.json";
 import "./Empty.scss";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 interface Props {
   name: string;
@@ -10,6 +10,7 @@ interface Props {
 }
 const Empty: React.FC<Props> = ({ name, drawer = false }) => {
   const history = useHistory();
+  const { pathname } = useLocation();
   return (
     <div className="empty">
       <h1>{name}</h1>
@@ -22,7 +23,7 @@ const Empty: React.FC<Props> = ({ name, drawer = false }) => {
           />
         </div>
       )}
-      <button onClick={() => history.push("/")}>Go Home</button>
+      {pathname !== "/" && <button onClick={() => history.push("/")}>Go Home</button>}
     </div>
   );
 };
